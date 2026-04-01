@@ -16,3 +16,15 @@ def create_pet():
     response.raise_for_status()
 
     return response.json()
+
+def create_pet_with_retry(retries=3, delay=2):
+    for attempt in range(retries):
+        try:
+            return create_pet()
+        except requests.exceptions.RequestException as e:
+            print(f"Attempt {attempt + 1} failed: {e}")
+
+            if attempt == retries - 1:
+                raise
+
+            time.sleep(delay)
