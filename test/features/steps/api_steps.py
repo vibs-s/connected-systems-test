@@ -1,5 +1,5 @@
 from behave import given
-from utils.api_client import create_pet
+from test.utils.api_client import create_pet
 
 @given('I create a new pet in the inventory system')
 def step_create_pet(context):
