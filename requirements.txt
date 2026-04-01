@@ -1,3 +1,4 @@
 behave
 playwright
 requests
+allure-behave
